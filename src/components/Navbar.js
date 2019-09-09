@@ -1,20 +1,24 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, withRouter } from 'react-router-dom';
 
-const Navbar = () => {
+const Navbar = props => {
+
+
   return (
     <nav className="nav-wrapper red darken-3">
       <div className="container">
-        <NavLink className="brand-logo left ">PokeTimes</NavLink>
+        <Link to="/home" className="brand-logo left ">
+          PokeTimes
+        </Link>
         <ul className="right">
           <li>
-            <Link to="/home">Home</Link>
+            <NavLink to="/home">Home</NavLink>
           </li>
           <li>
-            <Link to="/about">About</Link>
+            <NavLink to="/about">About</NavLink>
           </li>
           <li>
-            <Link to="/contact">Contact</Link>
+            <NavLink to="/contact">Contact</NavLink>
           </li>
         </ul>
       </div>
@@ -22,4 +26,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default withRouter(Navbar);
