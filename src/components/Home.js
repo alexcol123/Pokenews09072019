@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 export class Home extends Component {
@@ -19,9 +20,12 @@ export class Home extends Component {
       posts.map(post => (
         <div key={post.id} className="post card">
           <div className="card-content">
-            <span className="card-title center red-text">
-              <b> {post.title.toUpperCase()}</b>
-            </span>
+            <Link to={`/${post.id}`}>
+              {' '}
+              <span className="card-title center red-text">
+                <b> {post.title.toUpperCase()}</b>
+              </span>
+            </Link>
             <p>{post.body}</p>
           </div>
         </div>
